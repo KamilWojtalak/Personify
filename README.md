@@ -1,5 +1,7 @@
 # Personify
 
+TL;DR: Personify lets you organize contacts into personas, capture key notes, and instantly get personalized conversation topics and recommendations.
+
 Personify is a simple app that helps you create personal profiles, take notes, and get context for conversations with people similar to your ideal personas.
 
 Notes such as:
