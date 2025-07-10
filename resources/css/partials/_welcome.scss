@@ -1,0 +1,72 @@
+/* Custom styles to complement Tailwind */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* slate-50 */
+}
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+}
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9; /* slate-100 */
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* slate-400 */
+}
+/* Simple tree styles */
+.tree ul {
+    padding-left: 1.5rem;
+    border-left: 1px solid #e2e8f0; /* slate-200 */
+}
+.tree-item {
+    cursor: pointer;
+}
+.tree-item > div:hover {
+    background-color: #f1f5f9; /* slate-100 */
+}
+.tree-item-actions {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.tree-item > div:hover .tree-item-actions {
+    opacity: 1;
+}
+/* Timeline styles */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e2e8f0; /* slate-200 */
+}
+.timeline-item:first-child::before {
+    top: 12px;
+}
+.timeline-item:last-child::before {
+    bottom: calc(100% - 12px);
+}
+.timeline-dot {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+}
+/* Modal styles */
+.modal-backdrop {
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    transition: transform 0.3s ease;
+}
