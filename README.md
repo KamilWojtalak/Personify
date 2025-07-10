@@ -1,19 +1,21 @@
 # Personify
 
-Personify is an app for building and managing detailed personal profiles-capture notes.
+Personify is a simple app that helps you create personal profiles, take notes, and get context for conversations with people similar to your ideal personas.
 
-Such as:
-- interaction history  
-- repetitive topics  
-- social links  
+Notes such as:
+- interaction history
+- repetitive topics
+- social links
 
-You can create multiple ideal personas as templates and real people, then assign each person to one or more personas. Personify aggregates information about everyone you meet and lets you quickly scan who you should reach out to next.
+I built this because I had trouble making new connections in my 20s. Now I always have topics to discuss based on what I've learned. Cold outreach is no longer that cold 😁
 
-Personify aggregates information about everyone you meet and lets you quickly scan who you should reach out to next. 
+You can create multiple ideal personas as templates, add real people, and assign each person to one or more personas.
 
-I built this because I had trouble making new connections in my 20s, and here I have topics ready to discuss interesting subjects I learned from others, ensuring conversations are highly personalized. 
+Personify aggregates information about everyone you meet and lets you quickly scan who you should reach out to next, and what to write about to them.
 
-Additionally, if someone is looking for someone I can recommend, it will be easy to find them thanks to the information I've saved.
+If someone asks me to recommend a contact - for example, someone needs a business card website and wants a WordPress developer - I can easily find the right person with my saved notes. I can look at all the WordPress developers I've messaged and pick the best one based on my notes.
+
+It's also useful for meeting new contacts when doing cold DM-ing in a specific industry. I can see the common problems people in an ideal persona-like a Laravel developer-have faced and personalize my message. For example, instead of a plain “Hey, how are you?”, I could ask if they've ever implemented GraphQL in Laravel. This way, you jump straight into a meaningful topic instead of making small talk about the weather.
 
 Does it make sense? I don't know. I'm trying my best :D
 
