@@ -1,6 +1,6 @@
 # Personify
 
-Personify is an app for building and managing detailed personal profiles—capture notes.
+Personify is an app for building and managing detailed personal profiles-capture notes.
 
 Such as:
 - interaction history  
