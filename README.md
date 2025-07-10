@@ -16,3 +16,12 @@ I built this because I had trouble making new connections in my 20s, and here I 
 Additionally, if someone is looking for someone I can recommend, it will be easy to find them thanks to the information I've saved.
 
 Does it make sense? I don't know. I'm trying my best :D
+
+## How to setup
+
+- sail
+```
+sail up -d
+
+sail npm run dev
+```
