@@ -25,6 +25,8 @@ Does it make sense? I don't know. I'm trying my best :D
 
 - sail
 ```
+tbc... to be updated
+
 sail up -d
 
 sail npm run dev
