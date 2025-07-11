@@ -30,4 +30,10 @@ tbc... to be updated
 sail up -d
 
 sail npm run dev
+
+sail artisan migrate:fresh --seed
+
+docker compose exec laravel.test ./vendor/bin/pint
+
+sail php artisan ide-helper:models -RW
 ```
