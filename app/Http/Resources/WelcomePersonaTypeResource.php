@@ -17,8 +17,7 @@ class WelcomePersonaTypeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'language' => $this->language,
-            'rating' => $this->rating,
+            'children' => $this->childrenRecursive,
         ];
     }
 }
