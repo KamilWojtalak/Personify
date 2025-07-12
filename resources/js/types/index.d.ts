@@ -51,6 +51,7 @@ export interface Contact {
 export interface PersonaType {
     id: number;
     name: string;
+    children?: PersonaType[];
 }
 
 export interface Resource<T> {
