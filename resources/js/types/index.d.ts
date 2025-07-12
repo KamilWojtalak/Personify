@@ -40,3 +40,19 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Contact {
+    id: number;
+    name: string;
+    created_at: string;
+    rating: 'GOOD' | 'AVERAGE' | 'POOR';
+}
+
+export interface PersonaType {
+    id: number;
+    name: string;
+}
+
+export interface Resource<T> {
+    data: T[];
+}
