@@ -37,3 +37,6 @@ docker compose exec laravel.test ./vendor/bin/pint
 
 sail php artisan ide-helper:models -RW
 ```
+
+TODO
+- add Larastan
