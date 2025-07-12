@@ -29,7 +29,7 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                 </Link>
             </div>
             <nav className="flex-1 space-y-2">
-                <a href="#" className="flex items-center gap-3 rounded-lg bg-indigo-50 px-3 py-2 font-semibold text-indigo-700">
+                <Link href={route('home')} className="flex items-center gap-3 rounded-lg bg-indigo-50 px-3 py-2 font-semibold text-indigo-700">
                     <svg
                         className="sidebar-icon"
                         xmlns="http://www.w3.org/2000/svg"
@@ -45,9 +45,9 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                         />
                     </svg>
                     <span>Dashboard</span>
-                </a>
-                <a
-                    href="#"
+                </Link>
+                <Link
+                    href={route('contacts.index')}
                     className="flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                 >
                     <svg
@@ -64,10 +64,10 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"
                         />
                     </svg>
-                    <span>People</span>
-                </a>
-                <a
-                    href="#"
+                    <span>Contacts</span>
+                </Link>
+                <Link
+                    href={route('persona-types.index')}
                     className="flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                 >
                     <svg
@@ -85,7 +85,7 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                         />
                     </svg>
                     <span>Persona Types</span>
-                </a>
+                </Link>
             </nav>
             <div className="mt-auto">
                 <a
@@ -138,7 +138,7 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
 
                     {/* <!-- Quick Actions --> */}
                     <div className="ml-4 flex items-center gap-4">
-                        <button
+                        <Link href={route('contacts.create')}
                             id="add-person-btn"
                             className="hidden items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white transition-colors hover:bg-indigo-700 sm:flex"
                         >
@@ -149,9 +149,9 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                                     clip-rule="evenodd"
                                 />
                             </svg>
-                            <span>Person</span>
-                        </button>
-                        <button
+                            <span>Contact</span>
+                        </Link>
+                        <Link href={route('persona-types.create')}
                             id="add-type-btn"
                             className="hidden items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-700 transition-colors hover:bg-slate-50 sm:flex"
                         >
@@ -163,8 +163,9 @@ export default ({ children, ...props }: DefaultLayoutProps) => (
                                 />
                             </svg>
                             <span>Persona Type</span>
-                        </button>
+                        </Link>
                     </div>
+
                 </div>
             </header>
 
