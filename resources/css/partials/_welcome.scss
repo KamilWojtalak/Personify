@@ -34,6 +34,8 @@ body {
     background-color: #f1f5f9; /* slate-100 */
 }
 .tree-item-actions {
+    display: flex;
+    align-items: center;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }

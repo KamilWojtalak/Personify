@@ -43,3 +43,4 @@ TODO
 
 Code TODOs:
 - TODO: add expand/collapse functionality
+- TODO: component

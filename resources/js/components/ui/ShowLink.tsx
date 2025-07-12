@@ -4,9 +4,9 @@ type ShowLinkProps = {
     link: string;
 };
 
-export default function ShowLink({ link }: ShowLinkProps) {
+export default function ShowLink({ link, ...props }: ShowLinkProps) {
     return (
-        <Link href={link} className="text-slate-400 hover:text-indigo-600">
+        <Link href={link} className={`text-slate-400 hover:text-indigo-600`} {...props}>
             <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
