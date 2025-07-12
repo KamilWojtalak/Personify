@@ -6,7 +6,6 @@ use App\Enums\ContactRatingEnum;
 use App\Enums\LanguageEnum;
 use App\Models\Contact;
 use App\Models\PersonaType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ContactSeeder extends Seeder
@@ -30,7 +29,6 @@ class ContactSeeder extends Seeder
 
         $types = PersonaType::whereIn('name', $typeNames)->get();
 
-
         $anna = Contact::create([
             'name' => 'Kamil Wojtalak',
             'language' => LanguageEnum::ENGLISH,
@@ -39,7 +37,6 @@ class ContactSeeder extends Seeder
 
         $anna->personaTypes()->attach($types->where('name', 'Laravel Developer')->first()->id);
 
-
         $john = Contact::create([
             'name' => 'John Smith',
             'language' => LanguageEnum::ENGLISH,
@@ -47,7 +44,6 @@ class ContactSeeder extends Seeder
         ]);
 
         $john->personaTypes()->attach($types->where('name', 'React Developer')->first()->id);
-
 
         $jan = Contact::create([
             'name' => 'Jan Kowalski',
@@ -58,7 +54,6 @@ class ContactSeeder extends Seeder
         $jan->personaTypes()->attach($types->where('name', 'Corporate Lawyer')->first()->id);
         $jan->personaTypes()->attach($types->where('name', 'GDPR Lawyer')->first()->id);
 
-
         $emily = Contact::create([
             'name' => 'Emily Davis',
             'language' => LanguageEnum::ENGLISH,
@@ -68,7 +63,6 @@ class ContactSeeder extends Seeder
         $emily->personaTypes()->attach([$types->where('name', 'Laravel Developer')->first()->id]);
         $emily->personaTypes()->attach([$types->where('name', 'React Developer')->first()->id]);
 
-
         $james = Contact::create([
             'name' => 'James Wilson',
             'language' => LanguageEnum::ENGLISH,
@@ -76,7 +70,6 @@ class ContactSeeder extends Seeder
         ]);
 
         $james->personaTypes()->attach($types->where('name', 'Developer')->first()->id);
-
 
         $sarah = Contact::create([
             'name' => 'Sarah Johnson',
@@ -86,7 +79,6 @@ class ContactSeeder extends Seeder
 
         $sarah->personaTypes()->attach($types->where('name', 'Lawyer')->first()->id);
 
-
         $michael = Contact::create([
             'name' => 'Michael Brown',
             'language' => LanguageEnum::ENGLISH,
@@ -95,7 +87,6 @@ class ContactSeeder extends Seeder
 
         $michael->personaTypes()->attach($types->where('name', 'Wordpress Developer')->first()->id);
 
-
         $lisa = Contact::create([
             'name' => 'Lisa Thompson',
             'language' => LanguageEnum::ENGLISH,
@@ -103,7 +94,6 @@ class ContactSeeder extends Seeder
         ]);
 
         $lisa->personaTypes()->attach($types->where('name', 'Sales')->first()->id);
-
 
         $david = Contact::create([
             'name' => 'David Anderson',
