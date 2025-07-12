@@ -38,9 +38,13 @@ docker compose exec laravel.test ./vendor/bin/pint
 sail php artisan ide-helper:models -RW
 ```
 
-TODO
+## TODO
 - add Larastan
 
-Code TODOs:
+## Code TODOs:
+- TODO: add functionality for contacts. index create edit, same for persona types
 - TODO: add expand/collapse functionality
 - TODO: component
+- TODO: fix sidebar icons
+- TODO: fix fixed numbers like Total Contacts
+- TODO: modify fixed section "Recent Contacts"
