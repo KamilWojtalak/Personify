@@ -40,3 +40,6 @@ sail php artisan ide-helper:models -RW
 
 TODO
 - add Larastan
+
+Code TODOs:
+- TODO: add expand/collapse functionality
