@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use App\Http\Resources\WelcomeContactResource;
 use App\Models\Contact;
+use App\Models\PersonaType;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -16,7 +18,13 @@ class ContactController extends Controller
      */
     public function index(): Response
     {
-        return Inertia::render('Contacts/Index');
+        // TODO add select
+        // TODO modify API resource
+        $contacts = Contact::with('personaTypes')->latest()->paginate();
+
+        return Inertia::render('Contacts/Index', [
+            'contacts' => WelcomeContactResource::collection($contacts)
+        ]);
     }
 
     /**
@@ -24,7 +32,12 @@ class ContactController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Contacts/Create');
+        // TODO add some logic, to get the most popular ones, and Add actual searching logic in that view
+        $availablePersonas = PersonaType::latest('id')->get();
+
+        return Inertia::render('Contacts/Create', [
+            'availablePersonas' => $availablePersonas,
+        ]);
     }
 
     /**
@@ -32,7 +45,12 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        dd('TODO');
+        // TODO service for creating contact
+        $contact = Contact::create($request->validated());
+
+        $contact->personaTypes()->sync($request->input('persona_ids', []));
+
+        return redirect()->route('contacts.index');
     }
 
     /**
@@ -68,6 +86,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        dd('TODO');
+        $contact->delete();
+
+        return redirect()->route('contacts.index');
     }
 }

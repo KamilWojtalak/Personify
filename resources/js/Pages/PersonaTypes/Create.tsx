@@ -59,7 +59,6 @@ export default function Create() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        console.log("Submitting form with data:", data);
         post(route("persona-types.store"));
     };
 
