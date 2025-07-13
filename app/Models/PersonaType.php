@@ -13,6 +13,7 @@ class PersonaType extends Model
     protected $fillable = [
         'name',
         'description',
+        'parent_id'
     ];
 
     public function contacts()
