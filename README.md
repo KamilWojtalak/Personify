@@ -48,3 +48,4 @@ sail php artisan ide-helper:models -RW
 - TODO: fix sidebar icons
 - TODO: fix fixed numbers like Total Contacts
 - TODO: modify fixed section "Recent Contacts"
+- TODO: add API resources (in PersonaTypeController)
