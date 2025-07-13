@@ -42,4 +42,16 @@ test('store persona type with parent', function () {
         'description' => $description,
         'parent_id' => $parent->id,
     ]);
-})->only();
+});
+
+test('delete persona type', function () {
+    $personaType = PersonaType::factory()->create();
+
+    $response = $this->delete(route('persona-types.destroy', $personaType->id));
+
+    $response->assertRedirect(route('persona-types.index'));
+
+    $this->assertDatabaseMissing('persona_types', [
+        'id' => $personaType->id,
+    ]);
+});

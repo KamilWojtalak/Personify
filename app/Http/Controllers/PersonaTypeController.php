@@ -16,7 +16,12 @@ class PersonaTypeController extends Controller
      */
     public function index(): Response
     {
-        return Inertia::render('PersonaTypes/Index');
+        // TODO Add resource
+        $personaTypes = PersonaType::with('parent')->latest('id')->paginate();
+
+        return Inertia::render('PersonaTypes/Index', [
+            'personaTypes' => $personaTypes,
+        ]);
     }
 
     /**
@@ -73,8 +78,9 @@ class PersonaTypeController extends Controller
      */
     public function destroy(PersonaType $personaType)
     {
-        dd('todo');
-        //
+        $personaType->delete();
+
+        return redirect()->route('persona-types.index')->with('success', 'Persona Type deleted successfully.');
     }
 
     public function search(Request $request)
