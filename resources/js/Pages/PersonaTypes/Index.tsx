@@ -1,8 +1,9 @@
 import DeleteLink from "@/components/ui/DeleteLink";
 import EditLink from "@/components/ui/EditLink";
+import { Pagination } from "@/components/ui/Pagination";
 import ShowLink from "@/components/ui/ShowLink";
 import DefaultLayout from "@/layouts/default-layout";
-import { Pagination, SharedData } from "@/types";
+import { Paginate, SharedData } from "@/types";
 import { Head, usePage } from "@inertiajs/react";
 
 interface PersonaType {
@@ -13,7 +14,7 @@ interface PersonaType {
 }
 
 type IndexProps = {
-    personaTypes: Pagination<PersonaType>;
+    personaTypes: Paginate<PersonaType>;
 } & SharedData;
 
 export default function Index() {
@@ -30,6 +31,8 @@ export default function Index() {
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                    <Pagination meta={personaTypes} className="mb-4" />
+
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
@@ -70,6 +73,7 @@ export default function Index() {
                             ))}
                         </tbody>
                     </table>
+                    <Pagination meta={personaTypes} className="my-4" />
                 </div>
 
             </DefaultLayout>

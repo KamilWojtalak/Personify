@@ -58,20 +58,20 @@ export interface Resource<T> {
     data: T[];
 }
 
-interface PaginationLink {
+interface PaginateLink {
     active: boolean;
     label: string;
     url: string | null;
 }
 
-export interface Pagination<T> {
+export interface Paginate<T> {
     data: T[];
     current_page: number;
     first_page_url: string;
     last_page_url: string;
     from: number;
     last_page: number;
-    links: PaginationLink[];
+    links: PaginateLink[];
     next_page_url: string | null;
     path: string;
     per_page: number;

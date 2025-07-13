@@ -1,9 +1,10 @@
 import ContactRatingCircle from "@/components/ui/ContactRatingCircle";
 import DeleteLink from "@/components/ui/DeleteLink";
 import EditLink from "@/components/ui/EditLink";
+import { Pagination } from "@/components/ui/Pagination";
 import ShowLink from "@/components/ui/ShowLink";
 import DefaultLayout from "@/layouts/default-layout";
-import { Pagination, SharedData } from "@/types";
+import { Paginate, SharedData } from "@/types";
 import { Head, usePage } from "@inertiajs/react";
 
 interface ContactType {
@@ -12,7 +13,7 @@ interface ContactType {
 }
 
 type Props = {
-    contacts: Pagination<ContactType>;
+    contacts: Paginate<ContactType>;
 } & SharedData;
 
 export default function Index() {
@@ -20,15 +21,16 @@ export default function Index() {
 
     return (
         <>
-            <Head title="Persona Types"></Head>
+            <Head title="Contacts"></Head>
 
             <DefaultLayout>
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Persona Types</h1>
-                    <p className="text-gray-600">List of all persona types</p>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Contacts</h1>
+                    <p className="text-gray-600">List of all contacts</p>
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                    <Pagination meta={contacts.meta} className="mb-4" />
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
@@ -65,6 +67,7 @@ export default function Index() {
                             ))}
                         </tbody>
                     </table>
+                    <Pagination meta={contacts.meta} className="my-4" />
                 </div>
 
             </DefaultLayout>
