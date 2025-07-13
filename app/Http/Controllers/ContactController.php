@@ -6,26 +6,23 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use Inertia\Inertia;
+use Inertia\Response;
 
+// TODO: add API resources
 class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        dd('index of contacts, add Resource');
-
-        return Inertia::render('Contacts/Index', [
-            // TODO resource
-            'contacts' => $contacts,
-        ]);
+        return Inertia::render('Contacts/Index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Contacts/Create');
     }
@@ -41,12 +38,9 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Contact $contact)
+    public function show(Contact $contact): Response
     {
-        dd('add Resource');
-
         return Inertia::render('Contacts/Show', [
-            // TODO resource
             'contact' => $contact,
         ]);
     }
@@ -54,13 +48,9 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Contact $contact)
+    public function edit(Contact $contact): Response
     {
-        dd('add Resource');
-        dd('Edit Contact', $contact);
-
         return Inertia::render('Contacts/Edit', [
-            // TODO resource
             'contact' => $contact,
         ]);
     }
@@ -71,7 +61,6 @@ class ContactController extends Controller
     public function update(UpdateContactRequest $request, Contact $contact)
     {
         dd('TODO');
-        //
     }
 
     /**
@@ -80,6 +69,5 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         dd('TODO');
-        //
     }
 }
