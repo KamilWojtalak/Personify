@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('name');
+            $table->text('description')->nullable();
             $table->unsignedInteger('language')->nullable();
             $table->unsignedInteger('rating')->default(ContactRatingEnum::AVERAGE->value);
 
