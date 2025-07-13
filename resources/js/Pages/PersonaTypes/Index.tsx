@@ -23,7 +23,6 @@ export default function Index() {
         <>
             <Head title="Persona Types"></Head>
 
-
             <DefaultLayout>
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Persona Types</h1>
