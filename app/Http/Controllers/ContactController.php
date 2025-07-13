@@ -20,7 +20,7 @@ class ContactController extends Controller
     {
         // TODO add select
         // TODO modify API resource
-        $contacts = Contact::with('personaTypes')->latest()->paginate();
+        $contacts = Contact::with('personaTypes')->latest('id')->paginate();
 
         return Inertia::render('Contacts/Index', [
             'contacts' => WelcomeContactResource::collection($contacts)
