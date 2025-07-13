@@ -5,25 +5,26 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePersonaTypeRequest;
 use App\Http\Requests\UpdatePersonaTypeRequest;
 use App\Models\PersonaType;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class PersonaTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        dd('todo');
-        //
+        return Inertia::render('PersonaTypes/Index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
-        dd('todo');
-        //
+        return Inertia::render('PersonaTypes/Create');
     }
 
     /**
@@ -31,26 +32,31 @@ class PersonaTypeController extends Controller
      */
     public function store(StorePersonaTypeRequest $request)
     {
-        dd('todo');
-        //
+        $data = $request->validated();
+
+        PersonaType::create($data);
+
+        return redirect()->route('persona-types.index')->with('success', 'Persona Type created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PersonaType $personaType)
+    public function show(PersonaType $personaType): Response
     {
-        dd('todo');
-        //
+        return Inertia::render('PersonaTypes/Show', [
+            'personaType' => $personaType,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PersonaType $personaType)
+    public function edit(PersonaType $personaType): Response
     {
-        dd('todo');
-        //
+        return Inertia::render('PersonaTypes/Edit', [
+            'personaType' => $personaType,
+        ]);
     }
 
     /**
@@ -69,5 +75,14 @@ class PersonaTypeController extends Controller
     {
         dd('todo');
         //
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+        // TODO add search local scope
+        $results = PersonaType::whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($query) . '%'])->get();
+
+        return response()->json($results);
     }
 }
