@@ -8,6 +8,8 @@ use Inertia\Inertia;
 
 Route::get('/', [StaticPageController::class, 'welcome'])->name('home');
 Route::resource('/contacts', ContactController::class);
+
+Route::get('/persona-types/search', [PersonaTypeController::class, 'search'])->name('persona-types.search');
 Route::resource('/persona-types', PersonaTypeController::class);
 
 Route::middleware(['auth', 'verified'])->group(function () {
