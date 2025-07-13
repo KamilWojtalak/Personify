@@ -12,10 +12,12 @@ class PersonaTypeSeeder extends Seeder
      */
     public function run(): void
     {
+        $dev = PersonaType::factory()->count(15)->create();
+
         // parent types
         $dev = PersonaType::create(['name' => 'Developer', 'description' => 'General software developer']);
         $law = PersonaType::create(['name' => 'Lawyer', 'description' => 'Legal professional']);
-        $sales = PersonaType::create(['name' => 'Sales', 'description' => 'Sales / Biz-dev']);
+        PersonaType::create(['name' => 'Sales', 'description' => 'Sales / Biz-dev']);
 
         // child types
         PersonaType::insert([

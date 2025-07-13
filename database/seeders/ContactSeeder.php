@@ -15,6 +15,8 @@ class ContactSeeder extends Seeder
      */
     public function run(): void
     {
+        Contact::factory()->count(100)->create();
+
         $typeNames = [
             'Developer',
             'Lawyer',
@@ -28,14 +30,6 @@ class ContactSeeder extends Seeder
         ];
 
         $types = PersonaType::whereIn('name', $typeNames)->get();
-
-        $anna = Contact::create([
-            'name' => 'Kamil Wojtalak',
-            'language' => LanguageEnum::ENGLISH,
-            'rating' => ContactRatingEnum::GOOD,
-        ]);
-
-        $anna->personaTypes()->attach($types->where('name', 'Laravel Developer')->first()->id);
 
         $john = Contact::create([
             'name' => 'John Smith',
@@ -102,5 +96,15 @@ class ContactSeeder extends Seeder
         ]);
 
         $david->personaTypes()->attach($types->where('name', 'Frank Loan Lawyer')->first()->id);
+
+        $kamil = Contact::create([
+            'name' => 'Kamil Wojtalak',
+            'language' => LanguageEnum::ENGLISH,
+            'rating' => ContactRatingEnum::GOOD,
+        ]);
+
+        $kamil->personaTypes()->attach($types->where('name', 'Laravel Developer')->first()->id);
+        $kamil->personaTypes()->attach($types->where('name', 'React Developer')->first()->id);
+        $kamil->personaTypes()->attach($types->where('name', 'Developer')->first()->id);
     }
 }
