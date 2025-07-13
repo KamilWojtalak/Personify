@@ -19,6 +19,7 @@ class PersonaTypeFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),
+            'parent_id' => null,
         ];
     }
 }
