@@ -45,11 +45,18 @@ export interface User {
     [key: string]: unknown; // This allows for additional properties...
 }
 
+export type Rating = 'GOOD' | 'AVERAGE' | 'POOR';
+
+export enum LanguageEnum {
+    ENGLISH = '1',
+    POLISH = '2',
+}
+
 export interface Contact {
     id: number;
     name: string;
     created_at: string;
-    rating: 'GOOD' | 'AVERAGE' | 'POOR';
+    rating: Rating;
 }
 
 export interface PersonaType {

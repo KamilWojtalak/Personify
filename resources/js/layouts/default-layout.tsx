@@ -1,4 +1,6 @@
-import { Link } from '@inertiajs/react';
+import FlashMessage from '@/components/ui/FlashMessage';
+import { SharedData } from '@/types';
+import { Link, usePage } from '@inertiajs/react';
 import { type ReactNode } from 'react';
 
 interface DefaultLayoutProps {
@@ -11,8 +13,12 @@ const inactiveClass = 'text-slate-600 hover:bg-slate-100 hover:text-slate-900';
 const isActiveRoute = (routeName: string) => route().current(routeName);
 
 export default function ({ children, ...props }: DefaultLayoutProps) {
+    const { flash } = usePage<SharedData>().props;
+
     return (
         <div className="flex h-screen overflow-hidden" {...props}>
+            <FlashMessage flash={flash} />
+
             {/* <!-- Side Navigation --> */}
             <aside className="hidden w-60 flex-col border-r border-slate-200 bg-white p-4 md:flex">
                 <div className="mb-8 flex items-center gap-3">
@@ -35,7 +41,10 @@ export default function ({ children, ...props }: DefaultLayoutProps) {
                     </Link>
                 </div>
                 <nav className="flex-1 space-y-2">
-                    <Link href={route('home')} className={`flex items-center gap-3 rounded-lg px-3 py-2 ${isActiveRoute('home') ? activeClass : inactiveClass}`}>
+                    <Link
+                        href={route('home')}
+                        className={`flex items-center gap-3 rounded-lg px-3 py-2 ${isActiveRoute('home') ? activeClass : inactiveClass}`}
+                    >
                         <svg
                             className="sidebar-icon"
                             xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +103,7 @@ export default function ({ children, ...props }: DefaultLayoutProps) {
                     </Link>
                 </nav>
                 <div className="mt-auto">
-                    <a
-                        href="#"
-                        className="flex items-center gap-3 rounded-lg px-3 py-2  ${isActiveRoute('home') ? activeClass : inactiveClass}"
-                    >
+                    <a href="#" className="${isActiveRoute('home') ? activeClass : inactiveClass} flex items-center gap-3 rounded-lg px-3 py-2">
                         <svg
                             className="sidebar-icon"
                             xmlns="http://www.w3.org/2000/svg"

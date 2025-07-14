@@ -6,13 +6,18 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Http\Resources\WelcomeContactResource;
 use App\Models\Contact;
-use App\Models\PersonaType;
+use App\Services\Models\PersonaTypeService;
 use Inertia\Inertia;
 use Inertia\Response;
 
 // TODO: add API resources
 class ContactController extends Controller
 {
+    public function __construct(private PersonaTypeService $personaTypeService)
+    {
+        //
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -32,8 +37,7 @@ class ContactController extends Controller
      */
     public function create(): Response
     {
-        // TODO add some logic, to get the most popular ones, and Add actual searching logic in that view
-        $availablePersonas = PersonaType::latest('id')->get();
+        $availablePersonas = $this->personaTypeService->getAvailablePersonas();
 
         return Inertia::render('Contacts/Create', [
             'availablePersonas' => $availablePersonas,
@@ -50,7 +54,7 @@ class ContactController extends Controller
 
         $contact->personaTypes()->sync($request->input('persona_ids', []));
 
-        return redirect()->route('contacts.index');
+        return redirect()->route('contacts.index')->with('success', 'Contact created successfully.');
     }
 
     /**
@@ -68,8 +72,13 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact): Response
     {
+        $contact->load('personaTypes');
+
+        $availablePersonas = $this->personaTypeService->getAvailablePersonas();
+
         return Inertia::render('Contacts/Edit', [
             'contact' => $contact,
+            'availablePersonas' => $availablePersonas,
         ]);
     }
 
@@ -78,7 +87,11 @@ class ContactController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        dd('TODO');
+        $contact->update($request->validated());
+
+        $contact->personaTypes()->sync($request->input('persona_ids', []));
+
+        return redirect()->route('contacts.edit', $contact->id)->with('success', 'Contact updated successfully.');
     }
 
     /**

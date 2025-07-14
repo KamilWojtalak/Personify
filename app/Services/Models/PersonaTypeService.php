@@ -14,4 +14,10 @@ class PersonaTypeService
             ->orderBy('name')
             ->get();
     }
+
+    public function getAvailablePersonas(): Collection
+    {
+        // TODO add some logic, to get the most popular ones, and Add actual searching logic in that view
+        return PersonaType::latest('id')->get();
+    }
 }

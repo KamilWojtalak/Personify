@@ -97,7 +97,7 @@ export default function Create() {
                             value={data.description}
                             onChange={(e) => setData("description", e.target.value)}
                             rows={4}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            className="w-full rounded-md border border-gray-300 px-3 py-2 min-h-[300px]"
                         />
                         {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description}</p>}
                     </div>

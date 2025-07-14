@@ -1,8 +1,7 @@
-import { Contact } from '@/types';
+import { Rating } from '@/types';
 
 interface Contact {
-    // TODO it should come from an ENUM
-    rating: 'GOOD' | 'AVERAGE' | 'POOR';
+    rating: Rating;
 }
 
 type Props = {
