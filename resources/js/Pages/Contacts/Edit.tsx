@@ -32,7 +32,7 @@ type Props = {
 } & SharedData;
 
 export default function Edit() {
-    const { contact, availablePersonas, flash } = usePage<Props>().props;
+    const { contact, availablePersonas } = usePage<Props>().props;
     const [personaSearch, setPersonaSearch] = useState('');
 
     const { data, setData, put, processing, errors } = useForm<FormData>({
