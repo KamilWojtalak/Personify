@@ -21,11 +21,11 @@ export default function Welcome() {
                 <div className="grid grid-cols-12 gap-6">
                     {/* <!-- Stats Cards --> */}
                     <div className="col-span-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                        <div className="cursor-pointer rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-lg">
+                        <div className="rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-lg">
                             <h3 className="text-sm font-medium text-slate-500">Total Contacts</h3>
                             <p className="mt-1 text-3xl font-bold text-slate-900">1,204</p>
                         </div>
-                        <div className="cursor-pointer rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-lg">
+                        <div className="rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-lg">
                             <h3 className="text-sm font-medium text-slate-500">Persona Types</h3>
                             <p className="mt-1 text-3xl font-bold text-slate-900">82</p>
                         </div>
