@@ -3,7 +3,6 @@
 namespace App\Services\Models;
 
 use App\Models\Contact;
-use COM;
 use Illuminate\Database\Eloquent\Collection;
 
 class ContactService
@@ -14,6 +13,11 @@ class ContactService
             ->orderByDesc('updated_at')
             ->take($limit)
             ->get();
+    }
+
+    public function count(): int
+    {
+        return Contact::count();
     }
 
     public function store(array $data): Contact

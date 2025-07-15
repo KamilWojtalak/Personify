@@ -26,6 +26,8 @@ class StaticPageController extends Controller
         return Inertia::render('Welcome', [
             'latestContacts' => ListingContactResource::collection($latestContacts),
             'personaTypes' => ListingPersonaTypeResource::collection($personaTypes),
+            'personaTypesCount' => $this->personaTypeService->count(),
+            'contactsCount' => $this->contactService->count()
         ]);
     }
 }
