@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,5 +35,10 @@ class PersonaType extends Model
     public function childrenRecursive()
     {
         return $this->children()->with('childrenRecursive');
+    }
+
+    public function scopeSearch(Builder $query, string $search): Builder
+    {
+        return $query->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($search) . '%']);
     }
 }

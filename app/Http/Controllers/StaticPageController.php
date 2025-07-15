@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ListingContactResource;
-use App\Http\Resources\WelcomePersonaTypeResource;
+use App\Http\Resources\ListingPersonaTypeResource;
 use App\Services\Models\ContactService;
 use App\Services\Models\PersonaTypeService;
 use Inertia\Inertia;
@@ -25,7 +25,7 @@ class StaticPageController extends Controller
 
         return Inertia::render('Welcome', [
             'latestContacts' => ListingContactResource::collection($latestContacts),
-            'personaTypes' => WelcomePersonaTypeResource::collection($personaTypes),
+            'personaTypes' => ListingPersonaTypeResource::collection($personaTypes),
         ]);
     }
 }

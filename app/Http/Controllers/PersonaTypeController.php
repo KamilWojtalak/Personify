@@ -11,9 +11,6 @@ use Inertia\Response;
 
 class PersonaTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(): Response
     {
         // TODO Add resource
@@ -24,17 +21,11 @@ class PersonaTypeController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(): Response
     {
         return Inertia::render('PersonaTypes/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StorePersonaTypeRequest $request)
     {
         $data = $request->validated();
@@ -44,38 +35,33 @@ class PersonaTypeController extends Controller
         return redirect()->route('persona-types.index')->with('success', 'Persona Type created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(PersonaType $personaType): Response
     {
+        $personaType->load(['parent', 'contacts']);
+
         return Inertia::render('PersonaTypes/Show', [
             'personaType' => $personaType,
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(PersonaType $personaType): Response
     {
+        $personaType->load('parent');
+
         return Inertia::render('PersonaTypes/Edit', [
             'personaType' => $personaType,
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdatePersonaTypeRequest $request, PersonaType $personaType)
     {
-        dd('todo');
-        //
+        $data = $request->validated();
+
+        $personaType->update($data);
+
+        return redirect()->route('persona-types.index')->with('success', 'Persona Type updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(PersonaType $personaType)
     {
         $personaType->delete();
@@ -86,8 +72,8 @@ class PersonaTypeController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('q');
-        // TODO add search local scope
-        $results = PersonaType::whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($query) . '%'])->get();
+
+        $results = PersonaType::search($query)->get();
 
         return response()->json($results);
     }
