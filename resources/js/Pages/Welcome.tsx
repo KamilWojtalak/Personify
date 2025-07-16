@@ -99,52 +99,6 @@ export default function Welcome() {
                         </div>
                     </div>
 
-                    {/* <!-- Timeline --> */}
-                    <div className="col-span-12 rounded-xl bg-white p-6 shadow-sm">
-                        <h3 className="mb-4 text-lg font-semibold text-slate-900">Recent Contacts</h3>
-                        <div className="space-y-6">
-                            <div className="timeline-item relative pl-8">
-                                <div className="timeline-dot rounded-full border-2 border-indigo-500 bg-white"></div>
-                                <p className="text-sm text-slate-500">Today, 14:30</p>
-                                <p className="font-medium text-slate-800">
-                                    Call with{' '}
-                                    <a href="#" className="text-indigo-600 hover:underline">
-                                        John X
-                                    </a>
-                                </p>
-                            </div>
-                            <div className="timeline-item relative pl-8">
-                                <div className="timeline-dot rounded-full bg-slate-200"></div>
-                                <p className="text-sm text-slate-500">Yesterday, 10:00</p>
-                                <p className="font-medium text-slate-800">
-                                    Email to{' '}
-                                    <a href="#" className="text-indigo-600 hover:underline">
-                                        Anna Y
-                                    </a>
-                                </p>
-                            </div>
-                            <div className="timeline-item relative pl-8">
-                                <div className="timeline-dot rounded-full bg-slate-200"></div>
-                                <p className="text-sm text-slate-500">3 days ago</p>
-                                <p className="font-medium text-slate-800">
-                                    Meeting with{' '}
-                                    <a href="#" className="text-indigo-600 hover:underline">
-                                        Joe Doe
-                                    </a>
-                                </p>
-                            </div>
-                            <div className="timeline-item relative pl-8">
-                                <div className="timeline-dot rounded-full bg-slate-200"></div>
-                                <p className="text-sm text-slate-500">5 days ago</p>
-                                <p className="font-medium text-slate-800">
-                                    Added note for{' '}
-                                    <a href="#" className="text-indigo-600 hover:underline">
-                                        Philip R
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </DefaultLayout>
         </>
