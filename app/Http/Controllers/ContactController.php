@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Http\Resources\ListingContactResource;
+use App\Http\Resources\ShowContactResource;
 use App\Models\Contact;
 use App\Services\Models\ContactService;
 use App\Services\Models\PersonaTypeService;
@@ -49,7 +50,7 @@ class ContactController extends Controller
         $contact->load(['personaTypes', 'communicationLogs']);
 
         return Inertia::render('Contacts/Show', [
-            'contact' => $contact,
+            'contact' => new ShowContactResource($contact)
         ]);
     }
 

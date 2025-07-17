@@ -41,32 +41,32 @@ export default function Show() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                <p className="text-gray-900">{contact.name}</p>
+                                <p className="text-gray-900">{contact.data.name}</p>
                             </div>
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Rating</label>
-                                <ContactRatingCircle contact={contact} />
+                                <ContactRatingCircle contact={contact.data} />
                             </div>
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Language</label>
                                 {/* TODO make dynamic */}
-                                <p>{contact.language === 1 ? 'English' : contact.language === 2 ? 'Polish' : contact.language}</p>
+                                <p>{contact.data.language === 1 ? 'English' : contact.data.language === 2 ? 'Polish' : contact.data.language}</p>
                             </div>
 
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                                <p className="text-gray-900">{contact.description}</p>
+                                <p className="text-gray-900">{contact.data.description}</p>
                             </div>
                         </div>
                     </div>
 
-                    {contact.persona_types && contact.persona_types.length > 0 && (
+                    {contact.data.persona_types && contact.data.persona_types.length > 0 && (
                         <div>
                             <h3 className="text-lg font-semibold text-gray-900 mb-3">Persona Types</h3>
                             <div className="flex flex-wrap gap-2">
-                                {contact.persona_types.map((persona) => (
+                                {contact.data.persona_types.map((persona) => (
                                     <span
                                         key={persona.id}
                                         className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
@@ -78,11 +78,11 @@ export default function Show() {
                         </div>
                     )}
 
-                    {contact.communication_logs && contact.communication_logs.length > 0 && (
+                    {contact.data.communication_logs && contact.data.communication_logs.length > 0 && (
                         <div className="mt-6">
                             <h3 className="text-lg font-semibold text-gray-900 mb-3">Communication Logs</h3>
                             <div className="space-y-2">
-                                {contact.communication_logs.map((log) => (
+                                {contact.data.communication_logs.map((log) => (
                                     <div
                                         key={log.id}
                                         className="flex items-center p-3 bg-gray-50 rounded-lg border"
