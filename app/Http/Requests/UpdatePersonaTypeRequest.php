@@ -22,9 +22,9 @@ class UpdatePersonaTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => "required|string|max:255",
-            "description" => "nullable|string",
-            "parent_id" => "nullable|exists:persona_types,id",
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'parent_id' => ['nullable', 'exists:persona_types,id'],
         ];
     }
 }
